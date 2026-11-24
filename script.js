@@ -12,9 +12,7 @@
   var MOODS = [
     { key: 'all', label: 'ทั้งหมด' },
     { key: 'fresh', label: 'Fresh' },
-    { key: 'sweet', label: 'Sweet' },
-    { key: 'confident', label: 'Confident' },
-    { key: 'romance', label: 'Romance' }
+    { key: 'peach', label: 'Peach' }
   ];
 
   /* ---------- Helpers ---------- */
