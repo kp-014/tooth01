@@ -1,0 +1,42 @@
+[
+  {
+    "id": "fresh-mint-30",
+    "name": "ยาสีฟัน Fresh Mint ขนาดเล็ก",
+    "mood": "fresh",
+    "type": "spray",
+    "size": "30g",
+    "price": 89,
+    "image": "landing_pages/images/fresh.jpg",
+    "description": "ยาสีฟันกลิ่นมิ้นต์เย็นสะอาด ให้ลมหายใจสดชื่นยาวนาน ขนาดพกพา เหมาะกับการเดินทาง"
+  },
+  {
+    "id": "fresh-mint-100",
+    "name": "ยาสีฟัน Fresh Mint ขนาดใหญ่",
+    "mood": "fresh",
+    "type": "spray",
+    "size": "100g",
+    "price": 199,
+    "image": "landing_pages/images/fresh.jpg",
+    "description": "ยาสีฟันกลิ่นมิ้นต์เย็นสะอาด ให้ลมหายใจสดชื่นยาวนาน ขนาดคุ้มค่าสำหรับใช้ประจำที่บ้าน"
+  },
+  {
+    "id": "peach-mint-30",
+    "name": "ยาสีฟัน Peach Mint ขนาดเล็ก",
+    "mood": "sweet",
+    "type": "spray",
+    "size": "30g",
+    "price": 89,
+    "image": "landing_pages/images/peach.jpg",
+    "description": "ยาสีฟันกลิ่นพีชอ่อนๆ ผสานความเย็นของมิ้นต์ ให้ความหวานนุ่มและสดชื่น ขนาดพกพา"
+  },
+  {
+    "id": "peach-mint-100",
+    "name": "ยาสีฟัน Peach Mint ขนาดใหญ่",
+    "mood": "sweet",
+    "type": "spray",
+    "size": "100g",
+    "price": 199,
+    "image": "landing_pages/images/peach.jpg",
+    "description": "ยาสีฟันกลิ่นพีชอ่อนๆ ผสานความเย็นของมิ้นต์ ให้ความหวานนุ่มและสดชื่น ขนาดคุ้มค่าสำหรับใช้ประจำที่บ้าน"
+  }
+]

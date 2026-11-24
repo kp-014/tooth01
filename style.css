@@ -1,0 +1,307 @@
+/* Body Scent — shared theme
+   Fonts (add this <link> in each HTML <head>):
+   https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&family=Noto+Serif+Thai:wght@300;400;500&family=Noto+Sans+Thai:wght@300;400;500&display=swap
+*/
+
+:root {
+  /* Base palette */
+  --white: #fdfbf7;
+  --cream: #f6f0e4;
+  --beige: #e6dac5;
+  --beige-deep: #b9a687;
+  --ink: #3a322a;
+  --ink-soft: #6e6254;
+
+  /* Accent: soft gold / bronze */
+  --accent: #a98a58;
+  --accent-deep: #8a6e43;
+
+  /* Mood dots (small touches only) */
+  --mood-fresh: #a9cfe0;
+  --mood-sweet: #efbcc2;
+  --mood-confident: #8f8a82;
+  --mood-romance: #cf93a2;
+
+  /* Lines */
+  --line: rgba(58, 50, 42, 0.22);
+  --line-soft: rgba(58, 50, 42, 0.12);
+
+  /* Type */
+  --font-serif: "Cormorant Garamond", "Noto Serif Thai", Georgia, serif;
+  --font-sans: "Jost", "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 7rem;
+
+  --radius: 2px;
+  --container: 1120px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  margin: 0 0 var(--space-2);
+}
+h1 { font-size: clamp(2.4rem, 5vw + 1rem, 4.2rem); font-weight: 300; }
+h2 { font-size: clamp(1.8rem, 2.5vw + 1rem, 2.6rem); }
+h3 { font-size: 1.35rem; }
+
+p { margin: 0 0 var(--space-3); max-width: 62ch; color: var(--ink-soft); }
+
+.lead { font-size: 1.1rem; }
+
+/* ---------- Layout ---------- */
+.container {
+  width: min(100% - 3rem, var(--container));
+  margin-inline: auto;
+}
+
+.section { padding-block: var(--space-6); }
+.section--cream { background: var(--cream); }
+.section--beige { background: var(--beige); }
+
+.section-head {
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+.section-head p { margin-inline: auto; }
+
+/* Short gold line under headings */
+.rule {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--accent);
+  margin: var(--space-2) auto 0;
+}
+.rule--left { margin-left: 0; }
+
+/* ---------- Header / Footer ---------- */
+.site-header {
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--white);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.brand {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+}
+.nav { display: flex; gap: var(--space-4); }
+.nav a { color: var(--ink-soft); transition: color 0.2s; }
+.nav a:hover { color: var(--accent-deep); }
+
+.site-footer {
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--line-soft);
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.btn:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+.btn--accent { border-color: var(--accent); color: var(--accent-deep); }
+.btn--accent:hover { background: var(--accent); border-color: var(--accent); color: var(--white); }
+
+:focus-visible {
+  outline: 1px solid var(--accent-deep);
+  outline-offset: 4px;
+}
+
+/* ---------- Mood dot (the only place mood color appears) ---------- */
+.mood-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--beige-deep);
+  margin-right: 0.6rem;
+  vertical-align: middle;
+}
+[data-mood="fresh"]     .mood-dot, .mood-dot--fresh     { background: var(--mood-fresh); }
+[data-mood="sweet"]     .mood-dot, .mood-dot--sweet     { background: var(--mood-sweet); }
+[data-mood="confident"] .mood-dot, .mood-dot--confident { background: var(--mood-confident); }
+[data-mood="romance"]   .mood-dot, .mood-dot--romance   { background: var(--mood-romance); }
+
+/* Mood tint on the thin underline beneath a card title */
+.card-rule {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  margin: var(--space-1) 0 var(--space-2);
+}
+[data-mood="fresh"]     .card-rule { background: var(--mood-fresh); }
+[data-mood="sweet"]     .card-rule { background: var(--mood-sweet); }
+[data-mood="confident"] .card-rule { background: var(--mood-confident); }
+[data-mood="romance"]   .card-rule { background: var(--mood-romance); }
+
+/* ---------- Product grid & card ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-4);
+}
+
+.product-card {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s;
+}
+.product-card:hover { border-color: var(--accent); }
+
+.product-card__image {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  object-fit: cover;
+  background: var(--cream);
+  margin-bottom: var(--space-3);
+}
+.product-card__meta {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: var(--space-1);
+}
+.product-card__title { font-size: 1.3rem; margin-bottom: 0; }
+.product-card__desc { font-size: 0.95rem; margin-bottom: var(--space-3); }
+.product-card__price {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--accent-deep);
+  margin-top: auto;
+  margin-bottom: var(--space-2);
+}
+
+/* ---------- Filter chips (e.g. mood / type) ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+.chip {
+  padding: 0.45rem 1.3rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.chip:hover,
+.chip.is-active { border-color: var(--accent); color: var(--ink); }
+
+/* ---------- Forms (for the order form later) ---------- */
+.field { margin-bottom: var(--space-3); }
+.field label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.4rem;
+}
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 0.8rem 0;
+  font: inherit;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  transition: border-color 0.2s;
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-bottom-color: var(--accent-deep);
+}
+.field textarea { resize: vertical; min-height: 96px; }
+
+.form-message { font-size: 0.95rem; margin-top: var(--space-2); color: var(--accent-deep); }
+
+/* ---------- Utilities ---------- */
+.text-center { text-align: center; }
+.mt-0 { margin-top: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .section { padding-block: var(--space-5); }
+}
+
+@media (max-width: 600px) {
+  .container { width: min(100% - 2rem, var(--container)); }
+  .section { padding-block: var(--space-4); }
+  .section-head { margin-bottom: var(--space-4); }
+  .site-header .container { flex-direction: column; gap: var(--space-2); }
+  .nav { gap: var(--space-3); }
+  .product-grid { grid-template-columns: 1fr; gap: var(--space-3); }
+  .btn { width: 100%; text-align: center; }
+}
