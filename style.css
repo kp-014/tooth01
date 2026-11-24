@@ -18,7 +18,7 @@
 
   /* Mood dots (small touches only) */
   --mood-fresh: #a9cfe0;
-  --mood-sweet: #efbcc2;
+  --mood-peach: #efbcc2;
   --mood-confident: #8f8a82;
   --mood-romance: #cf93a2;
 
@@ -172,7 +172,7 @@ p { margin: 0 0 var(--space-3); max-width: 62ch; color: var(--ink-soft); }
   vertical-align: middle;
 }
 [data-mood="fresh"]     .mood-dot, .mood-dot--fresh     { background: var(--mood-fresh); }
-[data-mood="sweet"]     .mood-dot, .mood-dot--sweet     { background: var(--mood-sweet); }
+[data-mood="peach"]     .mood-dot, .mood-dot--peach     { background: var(--mood-peach); }
 [data-mood="confident"] .mood-dot, .mood-dot--confident { background: var(--mood-confident); }
 [data-mood="romance"]   .mood-dot, .mood-dot--romance   { background: var(--mood-romance); }
 
@@ -185,7 +185,7 @@ p { margin: 0 0 var(--space-3); max-width: 62ch; color: var(--ink-soft); }
   margin: var(--space-1) 0 var(--space-2);
 }
 [data-mood="fresh"]     .card-rule { background: var(--mood-fresh); }
-[data-mood="sweet"]     .card-rule { background: var(--mood-sweet); }
+[data-mood="peach"]     .card-rule { background: var(--mood-peach); }
 [data-mood="confident"] .card-rule { background: var(--mood-confident); }
 [data-mood="romance"]   .card-rule { background: var(--mood-romance); }
 
@@ -304,4 +304,126 @@ p { margin: 0 0 var(--space-3); max-width: 62ch; color: var(--ink-soft); }
   .nav { gap: var(--space-3); }
   .product-grid { grid-template-columns: 1fr; gap: var(--space-3); }
   .btn { width: 100%; text-align: center; }
+}
+
+/* ======================================================
+   Additions for index.html / product.html
+   ====================================================== */
+
+.nav a[aria-current="page"] { color: var(--ink); }
+
+.page-title { font-size: clamp(2rem, 3vw + 1rem, 3rem); }
+
+/* ---------- Hero (index) ---------- */
+.site-header--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: transparent;
+  border-bottom: 0;
+}
+
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 0 var(--space-5);
+  background: radial-gradient(ellipse at 50% 38%, var(--white) 0%, var(--cream) 72%);
+}
+.hero h1 {
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: var(--space-3);
+}
+.hero .rule { margin-bottom: var(--space-4); }
+.hero__tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1vw + 1rem, 1.45rem);
+  line-height: 1.9;
+  max-width: 34ch;
+  margin: 0 auto var(--space-5);
+}
+
+/* ---------- Mood cards (index) ---------- */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  max-width: 760px;
+  margin-inline: auto;
+}
+.mood-card {
+  display: block;
+  padding: var(--space-4) var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.25s;
+}
+.mood-card:hover,
+.mood-card:focus-visible { border-color: var(--accent); }
+.mood-card h3 { margin-bottom: 0; }
+.mood-card p { margin: 0; font-size: 0.95rem; }
+
+@media (max-width: 600px) {
+  .mood-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 9rem; }
+  .hero .btn { width: auto; }
+}
+
+/* ======================================================
+   Additions for order / thankyou / admin
+   ====================================================== */
+
+.container--narrow { width: min(100% - 3rem, 560px); margin-inline: auto; }
+
+.order-form { margin-top: var(--space-4); }
+.order-form .btn { margin-top: var(--space-3); }
+.form-hint { font-size: 0.9rem; margin-top: var(--space-3); }
+.form-hint a { color: var(--accent-deep); border-bottom: 1px solid var(--accent); }
+
+.center-page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.center-page p { margin-inline: auto; margin-bottom: var(--space-4); }
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.data-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.data-table th,
+.data-table td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line-soft);
+}
+.data-table th {
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--accent);
+  background: var(--cream);
+}
+.data-table td { color: var(--ink-soft); }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+
+@media (max-width: 600px) {
+  .container--narrow { width: min(100% - 2rem, 560px); }
 }
